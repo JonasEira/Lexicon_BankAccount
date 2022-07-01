@@ -1,16 +1,22 @@
 package se.lexicon;
 
+import jdk.internal.icu.text.UnicodeSet;
+
+import java.util.ArrayList;
+
 public class Customer {
     private String name;
     private String email;
     
     private static int idGenerator = 100;
     private int customerId;
+    private ArrayList<BankAccount> bankAccounts;
 
     public Customer(String name, String email) {
         this.setName(name);
         this.setEmail(email);
         this.setCustomerId(idGenerator++);
+        bankAccounts = new ArrayList<>();
     }
 
     public String getName() {
@@ -35,5 +41,9 @@ public class Customer {
 
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
+    }
+
+    public void addBankAccount(BankAccount bankAcc) {
+        this.bankAccounts.add(bankAcc);
     }
 }
