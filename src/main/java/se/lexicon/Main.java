@@ -1,9 +1,18 @@
 package se.lexicon;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         Customer customer = new Customer("John Doe", "john.doe@gmail.com");
         CustomerService custServ = new CustomerService();
+
+        //Trying to add a customer without accounts.
+        try {
+            custServ.addCustomer(customer);
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
 
         BankAccount bankAcc = new BankAccount();
         BankAccount bankAcc2 = new BankAccount();
@@ -50,7 +59,9 @@ public class Main {
 
 
         bank.removeAccount(bankAcc.getAccountNumber());
-
-
+        ArrayList<BankAccount> accounts = customer.getAllAccounts();
+        for (int i = 0; i < accounts.size(); i++) {
+            System.out.println(i + " " + accounts.get(i).getInfo());
+        }
     }
 }

@@ -12,6 +12,9 @@ public class CustomerService {
     }
 
     public void addCustomer(Customer c) throws IllegalArgumentException {
+        if(c.getAccountsSize() < 1){
+            throw new IllegalArgumentException("Too few accounts");
+        }
         if(findCustomer(c.getEmail()) != null){
             throw new IllegalArgumentException("Not allowed to add duplicate E-mail addresses");
         }

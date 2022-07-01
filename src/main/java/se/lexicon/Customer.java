@@ -1,7 +1,5 @@
 package se.lexicon;
 
-import jdk.internal.icu.text.UnicodeSet;
-
 import java.util.ArrayList;
 
 public class Customer {
@@ -45,5 +43,13 @@ public class Customer {
 
     public void addBankAccount(BankAccount bankAcc) {
         this.bankAccounts.add(bankAcc);
+    }
+
+    public int getAccountsSize() {
+        return this.bankAccounts.size();
+    }
+
+    public ArrayList<BankAccount> getAllAccounts() {
+        return this.bankAccounts;
     }
 }
