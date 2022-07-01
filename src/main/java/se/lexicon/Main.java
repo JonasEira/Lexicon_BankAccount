@@ -27,6 +27,7 @@ public class Main {
 
         Bank bank = new Bank();
         bank.addAccount(bankAcc);
+        bank.addAccount(bankAcc2);
 
         try {
             bank.findAccount(bankAcc.getAccountNumber()).deposit(1000);
@@ -58,10 +59,10 @@ public class Main {
         }
 
 
-        bank.removeAccount(bankAcc.getAccountNumber());
         ArrayList<BankAccount> accounts = customer.getAllAccounts();
         for (int i = 0; i < accounts.size(); i++) {
             System.out.println(i + " " + accounts.get(i).getInfo());
         }
+        bank.removeAccount(bankAcc.getAccountNumber());
     }
 }
